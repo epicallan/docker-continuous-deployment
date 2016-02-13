@@ -1,0 +1,19 @@
+docker run -d -P --name web training/webapp python app.py
+docker run  -d -t -i -p 3000:3000 --name node_app --link redis_1:redis_1 045f971a6860
+iptables -I INPUT 1 -i eth0 -p tcp --dport 3000 -j ACCEPT
+docker run --name -i -t -d -p 27017:27017 --name mongo -v /var/lib/mongodb:/data/db mongo
+docker run  -t -i -p 5000:5000 --name akilihub --link redis:redis --link mongo:mongo  -d epicallan/akili
+docker run -i -t --entrypoint /bin/bash epicallan/akili
+mongorestore --collection twits --db mine mine/twits.bson
+mongodump  --db mine-new --collection twits
+scp /home/allan/dump/mine-new.tar.gz epicallan@akilihub:~
+mongorestore --collection twits --db mine mine-new/twits.bson
+
+
+docker run  -t -i --name mining --link redis:redis --link mongo:mongo -d epicallan/data-mining
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 5000
+
+#stop and remove all containers
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+docker run --name listener -e TOKEN="akilihub25526" -it -p 3000:3000 125de8fa2986
