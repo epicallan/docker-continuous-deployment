@@ -4,3 +4,4 @@
 
 - This is a test project for Continuous deployment and testing using docker
   and travis-ci.
+- There is an app on the server where its hosted tracking its builds on travis-ci and docker hub
