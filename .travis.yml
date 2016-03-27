@@ -17,3 +17,4 @@ script:
 
 notifications:
   webhooks: http://akilihub:8080/travis
+    on_success: always
