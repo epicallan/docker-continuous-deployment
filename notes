@@ -53,3 +53,6 @@ DocumentRoot /home/allan/di-website-vb/di-website/wp
 #search and replace with sed
 sed -i.bak s/STRING_TO_REPLACE/STRING_TO_REPLACE_IT/g index.html
 sed -i 's|http://localhost/di-website/wp|http://localhost|g' test.txt
+
+# lists process on port 8888
+fuser 8888/tcp
