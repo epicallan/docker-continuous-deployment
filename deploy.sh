@@ -4,7 +4,7 @@ mkdir app.git
 
 cd app.git
 
-git clone git@github.com:epicallan/docker-continuous-deployment.git /app.git
+git clone git@github.com:epicallan/docker-continuous-deployment.git ~/app.git
 
 docker build -t web . # builds app image
 

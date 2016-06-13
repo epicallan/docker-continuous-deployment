@@ -6,6 +6,8 @@ RUN mkdir  /src
 # copy app files into
 COPY . /src
 
+WORKDIR /src
+
 EXPOSE 3000
 
 RUN npm install
