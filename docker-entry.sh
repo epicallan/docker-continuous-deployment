@@ -4,9 +4,8 @@
 cd /src
 
 # git clone
-rm -rf /src \
-        && mkdir -p /src \
-        && git clone $GIT_REPO --branch ${GIT_BRANCH:-"master"} /src
+rm -rf ./* \
+        && git clone $GIT_REPO --branch ${GIT_BRANCH:-"master"}
 
 # start web service
 npm install
