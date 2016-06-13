@@ -1,7 +1,5 @@
 web:
-  build: .
-  volumes:
-    - ".:/src"
+  image: web:latest
   ports:
     - "3000:3000"
   links:
