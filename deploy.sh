@@ -1,8 +1,8 @@
-rm -rf app.git
+rm -rf ~/app.git
 
-mkdir app.git
+mkdir ~/app.git
 
-cd app.git
+cd ~/app.git
 
 git clone git@github.com:epicallan/docker-continuous-deployment.git ~/app.git
 

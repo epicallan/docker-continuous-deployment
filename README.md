@@ -8,6 +8,10 @@
 - The app runs a bash script that rebuilds the docker app container
 - The script deletes the current application directory and fetches the latest repo from github.
 
-## Note
+
+
+## Helpful commands
 
 To start up docker composer cd into root and run ```docker-compose up -d```
+
+To start interactive shell command in image ```docker run -it web /bin/bash```
