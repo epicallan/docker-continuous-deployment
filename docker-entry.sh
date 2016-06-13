@@ -4,8 +4,8 @@
 cd /src
 
 # git clone
-rm -rf /src \
-        && mkdir -p /src \
+rm -rf /src
+        && mkdir -p /src
         && git clone $GIT_REPO --branch ${GIT_BRANCH:-"master"} /src
 
 # start web service

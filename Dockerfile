@@ -1,18 +1,17 @@
 FROM node:latest
 
 # install git
-RUN apt-get update && apt-get install -y git --no-install-recommends && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y git
 
 # install openssh-client
 RUN apt-get update \
-        && apt-get install -y openssh-client --no-install-recommends \
-        && rm -rf /var/lib/apt/lists/*
+        && apt-get install -y openssh-client --no-install-recommends
 
 # add github to known_hosts
 RUN mkdir /root/.ssh && ssh-keyscan -t rsa github.com >> /root/.ssh/known_hosts
 
 # create app directory
-RUN mkdir -p /src
+RUN mkdir  /src
 
 # copy and set up entry script
 COPY ./docker-entry.sh /

@@ -6,4 +6,8 @@
   and github.
 - There is an app on the server which is listening for new commits via github hooks
 - The app runs a bash script that rebuilds the docker app container
-- The script deletes the current application directory fetches the latest repo from github.
+- The script deletes the current application directory and fetches the latest repo from github.
+
+## Note
+
+To start up docker composer cd into root and run ```docker-compose up -d```
