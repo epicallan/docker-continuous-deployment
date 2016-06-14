@@ -1,6 +1,6 @@
 web:
   image: web:latest
-  container_name: my-web-container
+  container_name: web-app
   ports:
     - "3000:3000"
   links:

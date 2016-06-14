@@ -8,11 +8,13 @@ git clone git@github.com:epicallan/docker-continuous-deployment.git ~/app.git
 
 isNotFirstBuild=`docker images | grep -w web`
 
-docker build -t web . # builds app image
-
 if [[ !$isNotFirstBuild ]]; then
-  echo 'first build so we run composer'
-  docker-compose up # connects up the apps
+  echo 'first build so we run composer up for all the images'
+  docker build -t web . # builds app image
+  docker-compose up # links up the various compose containers
 else
-  docker-compose restart web
+  echo 'updating the web app image'
+  docker-compose rm -f web # remove container associated with web image
+  docker build -t web . # builds app image
+  docker-compose up -d --no-deps web # create new container for the web image
 fi
