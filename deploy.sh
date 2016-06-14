@@ -11,10 +11,10 @@ isNotFirstBuild=`docker images | grep -w web`
 if [[ !$isNotFirstBuild ]]; then
   echo 'first build so we run composer up for all the images'
   docker build -t web . # builds app image
-  docker-compose up # links up the various compose containers
+  docker-compose up # links up the various compose image containers
 else
   echo 'updating the web app image'
   docker-compose rm -f web # remove container associated with web image
-  docker build -t web . # builds app image
-  docker-compose up -d --no-deps web # create new container for the web image
+  docker build -t web . # re-builds the web app image
+  docker-compose up -d --no-deps web # creates a new container for the web image without restarting the other containers
 fi

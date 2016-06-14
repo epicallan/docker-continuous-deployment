@@ -5,13 +5,11 @@
 - This is a test project for Continuous deployment and testing using docker
   and github.
 - There is an app on the server which is listening for new commits via github hooks
-- The app runs a bash script that rebuilds the docker app container
+- The app runs a [bash script](https://github.com/epicallan/docker-continuous-deployment/blob/master/deploy.sh) that rebuilds the docker app container
 - The script deletes the current application directory and fetches the latest repo from github.
 
 
 
-## Helpful commands
+## Helpful commands to remember
 
-To start up docker composer cd into root and run ```docker-compose up -d```
-
-To start interactive shell command in image ```docker run -it web /bin/bash```
+To start interactive shell command in an image ```docker run -it web /bin/bash```
