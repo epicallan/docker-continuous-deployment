@@ -14,5 +14,5 @@ if [[ !$isNotFirstBuild ]]; then
   echo 'first build so we run composer'
   docker-compose up # connects up the apps
 else
-  docker-compose restart
+  docker-compose restart web
 fi
